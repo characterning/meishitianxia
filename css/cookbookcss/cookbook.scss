@@ -1,0 +1,1282 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a,
+p,
+input,
+div,
+span {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.n_clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clear {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@mixin pos($p:absolute) {
+  position: $p;
+}
+
+#cookbookbox {
+  width: 100%;
+  height: 100%;
+  header {
+    width: 100%;
+    height: 40px;
+    background: #333333;
+    & > .wh_marko {
+      width: 50%;
+      line-height: 38px;
+      text-align: center;
+      //float: left;
+      & > li {
+        float: left;
+        padding: 0 2%;
+        cursor: pointer;
+        & > a {
+          color: #ccc;
+          font-size: 13px;
+          font-weight: bold;
+        }
+        &:nth-of-type(1) {
+          & > a {
+            & > i {
+              width: 55px;
+              height: 14px;
+              display: block;
+              margin: 13px 10px 0 0;
+              float: left;
+              background: url("../../img/indeximg/header.png") no-repeat scroll 0 0/55px auto;
+            }
+          }
+        }
+        &:last-child {
+          height: 40.1px;
+          @include pos(relative);
+          & > a {
+            display: inline-block;
+            & > span {
+              display: block;
+              border-top: 6px solid #ccc;
+              border-bottom: 0 solid rgba(255, 255, 255, 0);
+              border-left: 4px solid rgba(255, 255, 255, 0);
+              border-right: 4px solid rgba(255, 255, 255, 0);
+            }
+          }
+          & > ul {
+            z-index: 20;
+            width: 60px;
+            height: 80px;
+            display: none;
+            @include pos();
+            left: -24px;
+            top: 40px;
+            background: #333333;
+            & > li {
+              cursor: pointer;
+              & > a {
+                color: #ccc;
+                font-size: 13px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+    & > .wh_markt {
+      width: 23.44%;
+      line-height: 38px;
+      text-align: center;
+      float: right;
+      //border:1px solid white;
+      & > li {
+        //width:100%;
+        width: 40px;
+        height: 40px;
+        float: left;
+        padding: 0 2%;
+        cursor: pointer;
+        & > a {
+          color: #d8d8d8;
+        }
+        &:nth-of-type(3) {
+          line-height: 15px;
+          @include pos(relative);
+          & > a {
+            display: block;
+            font-size: 12px;
+            & > img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          & > ul {
+            display: none;
+            z-index: 20;
+            @include pos();
+            left: 0;
+            top: 40px;
+            & > li {
+              width: 63px;
+              height: 40px;
+              padding: 0 2%;
+              &:nth-of-type(1) {
+                background: #585757;
+              }
+              &:nth-of-type(2) {
+                background: #A9A9A9;
+              }
+              & > a {
+                font-size: 12px;
+                color: #ccc;
+                & > img {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+        &:nth-of-type(4) {
+          background: #59C3D1;
+          line-height: 15px;
+          @include pos(relative);
+          & > a {
+            font-size: 13px;
+            & > img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          & > ul {
+            display: none;
+            z-index: 1;
+            @include pos();
+            left: 0;
+            top: 40px;
+            & > li {
+              width: 63px;
+              height: 40px;
+              font-size: 12px;
+              line-height: 40px;
+              padding: 0 2%;
+              &:nth-of-type(1) {
+                background: #8ECDD8;
+                color: #f1f1f1;
+              }
+              &:nth-of-type(2) {
+                background: #A6DFEA;
+                color: #f1f1f1;
+              }
+              &:nth-of-type(3) {
+                background: #ADECF8;
+                color: #f1f1f1;
+              }
+            }
+          }
+        }
+        &:nth-of-type(5) {
+          background: #FFA859;
+          line-height: 15px;
+          & > a {
+            font-size: 10px;
+            & > img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+        &:nth-of-type(6) {
+          background: #FE5761;
+          line-height: 15px;
+          @include pos(relative);
+          & > a {
+            font-size: 10px;
+            & > img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          & > div {
+            display: none;
+            z-index: 1;
+            @include pos();
+            right: 0;
+            top: 40px;
+            & > img {
+              width: 100px;
+              height: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .content {
+    width: 100%;
+    .content_mark {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 15px 0px;
+      .wh_nav {
+        width: 100%;
+        border-bottom: 1px solid #FFA0A0;
+        position: relative;
+        .wh_nav_o {
+          float: left;
+          width: 108px;
+          height: 60px;
+          img {
+            width: 105px;
+            height: 40px;
+          }
+        }
+        .n_nav_btn {
+          width: 70px;
+          height: 30px;
+          float: left;
+          line-height: 30px;
+          padding-left: 12px;
+          padding-top: 4px;
+          button {
+            width: 60px;
+            height: 30px;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            background: #FF838B;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+          }
+          & > button:hover {
+            background: #FE5761;
+          }
+        }
+        .n_nav_nav {
+          width: 489px;
+          height: 60px;
+          position: absolute;
+          left: 30%;
+          top: 10px;
+          a {
+            font-size: 20px;
+            margin-right: 10px;
+            position: relative;
+            &.n_on {
+              color: #FF6767;
+            }
+            & > i {
+              @include pos();
+              bottom: -29px;
+              left: 50%;
+              z-index: 1;
+              display: block;
+              overflow: hidden;
+              margin-left: -9px;
+              width: 0;
+              height: 0;
+              border: 9px dashed transparent;
+              border-bottom: 9px solid #ff6767;
+            }
+            & > b {
+              @include pos();
+              bottom: -30px;
+              left: 50%;
+              z-index: 2;
+              display: block;
+              overflow: hidden;
+              margin-left: -9px;
+              width: 0;
+              height: 0;
+              border: 9px dashed transparent;
+              border-bottom: 9px solid #fff;
+            }
+          }
+          & > a:hover {
+            color: #FF6767;
+          }
+        }
+        .n_nav_search {
+          height: 28px;
+          margin-top: 2%;
+          @include pos();
+          right: 0;
+          top: -10px;
+          & > input {
+            width: 66%;
+            height: 100%;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            float: left;
+            outline: none;
+            border: 1px solid #CCCCCC;
+          }
+          & > span {
+            width: 23.1%;
+            height: 21px;
+            float: right;
+            background: #999999;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            padding: 2% 5%;
+            color: white;
+            & > img {
+              width: 16px;
+              height: 15px;
+              margin-right: 2px;
+              margin-top: 2px;
+            }
+          }
+          & > span:hover {
+            background: #FE5761;
+          }
+        }
+      }
+      .n_nav_title {
+        width: 100%;
+        height: 36px;
+        & > ul {
+          width: 100%;
+          height: 36px;
+          position: relative;
+          border-bottom: 1px solid #FFA0A0;
+          & > li {
+            float: left;
+            margin: 0px 5px;
+            padding: 8px;
+            & > a {
+              font-size: 14px;
+              color: #595959;
+            }
+            .n_on1 {
+              color: #FF838B;
+            }
+            & > a:hover {
+              color: #FF838B;
+            }
+            &:last-child {
+              float: right;
+              position: relative;
+              & > .n_modalbox {
+                background: white;
+                z-index: 11;
+                overflow: hidden;
+                width: 1000px;
+                height: 0px;
+                position: absolute;
+                top: 103%;
+                left: -900%;
+                & > .n_model1 {
+                  margin-top: 10px;
+                  float: left;
+                  margin-right: 20px;
+                  & > h4 {
+                    font-size: 14px;
+                  }
+                  ul {
+                    float: left;
+                    margin-right: 5px;
+                    li {
+                      padding: 5px 5px;
+                      color: #666666;
+                      font-size: 14px;
+                      margin: 5px 0px;
+                    }
+                    & > li:hover {
+                      color: #FF838B;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .n_carousel {
+        margin: 30px 0px;
+        width: 100%;
+        & > .swiper-container {
+          width: 100%;
+          height: 250px;
+          position: relative;
+          .swiper-slide {
+            width: 100%;
+            .n_swiperimg1 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/201502101423548660196.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              margin-right: 40px;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg2 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/201501091420773607309.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              margin-right: 40px;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg3 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/20130331093624900412373.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg4 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/201501281422414439163.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              margin-right: 40px;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg5 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/201411191416392824395.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              margin-right: 40px;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg6 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/2016111514792143265382261565.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg7 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/20160805fabjjh59ub2kn2s8.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              margin-right: 40px;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg8 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/20120222223626827431541.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              margin-right: 40px;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+            .n_swiperimg9 {
+              float: left;
+              width: 300px;
+              height: 230px;
+              background: url("../../img/cookbookimg/20151126gow7z8n84pu0kbdg.jpg") no-repeat;
+              background-size: 100% 100%;
+              position: relative;
+              & > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 230px;
+                color: white;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+              }
+            }
+          }
+          .swiper-button-prev {
+            padding: 10px;
+            position: absolute;
+            top: 40%;
+            left: 0%;
+          }
+          .swiper-button-prev:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+          .swiper-button-next {
+            padding: 10px;
+            position: absolute;
+            top: 40%;
+            right: 2%;
+          }
+          .swiper-button-next:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+          }
+        }
+      }
+      .n_icon {
+        width: 100%;
+        height: 120px;
+        ul {
+          width: 100%;
+          li {
+            float: left;
+            text-align: center;
+            width: 99px;
+            height: 77px;
+            img {
+              width: 50px;
+              height: 50px;
+            }
+          }
+          & > li:hover {
+            color: #FF6767;
+          }
+        }
+      }
+      .content_mark0 {
+        width: 100%;
+        .n_Selectioncard1 {
+          width: 1000px;
+          border-bottom: 1px solid #E8E8E8;
+          padding: 9px 0px;
+          & > a {
+            color: #666666;
+            padding: 9px 0px;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0px 5px;
+            &.n_on {
+              border-bottom: 3px solid #FF6767;
+              color: #FF6767;
+            }
+          }
+          .n_right {
+            float: right;
+            & > a {
+              color: #666666;
+              font-weight: bold;
+              font-size: 18px;
+            }
+            & > a:hover {
+              color: #FF6767;
+            }
+          }
+        }
+        .n_cookbook1 {
+          width: 100%;
+          padding: 8px 0px;
+          .n_cook {
+            float: left;
+            margin-right: 20px;
+            width: 230px;
+            height: 305px;
+            .n_cookimg1 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149691415489613.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg2 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149691425373713.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg3 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149691389482713.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg4 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149691416032913.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg5 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/2017060814969116714277775169.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg20 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690978058313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg6 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690865223513.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg7 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690722964513.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg8 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690714170213.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg9 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690444336213.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg10 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690271587313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg11 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690267358813.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg12 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/2017060714968052939368041796.JPG") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg13 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690019024613.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg14 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149690006242713.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg15 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149689949818313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg16 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/2017051614949127031251478694.jpeg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg17 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149689862220013.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg18 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149689889515113.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg19 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170608149689897886513.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            p {
+              width: 100%;
+              text-align: center;
+              font-size: 20px;
+              margin: 8px 0px;
+              color: black;
+            }
+            p:hover {
+              color: #FF6767;
+              transition: all 2s linear;
+            }
+            a {
+              width: 100%;
+              text-decoration: none;
+              color: #999999;
+              font-size: 12px;
+              text-align: center;
+              display: block;
+            }
+            a:hover {
+              color: #FF6767;
+              transition: all 2s linear;
+            }
+          }
+        }
+        .n_cookbook2 {
+          width: 100%;
+          padding: 8px 0px;
+          display: none;
+          .n_cook {
+            float: left;
+            margin-right: 20px;
+            width: 230px;
+            height: 305px;
+            .n_cookimg1 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170602149639609922913.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg2 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170602149641372823313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg3 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/2017060614967177988676909590.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg4 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170604149658171513313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg5 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170601149632242195213.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg20 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170603149649445956013.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg6 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170603149648991491513.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg7 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170602149639358146713.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg8 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170606149671566864513.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg9 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170603149649863487913.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg10 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170606149671572144913.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg11 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170602149636713086313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg12 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170602149636889346013.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg13 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170605149667076334313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg14 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170603149647424970113.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg15 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170602149641582860913.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg16 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170606149674213895713.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg17 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170603149647746920313.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg18 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/20170602149640557849513.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg19 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/2017060214963976105396477378.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            p {
+              width: 100%;
+              text-align: center;
+              font-size: 20px;
+              margin: 8px 0px;
+              color: black;
+            }
+            p:hover {
+              color: #FF6767;
+              transition: all 2s linear;
+            }
+            a {
+              width: 100%;
+              text-decoration: none;
+              color: #999999;
+              font-size: 12px;
+              text-align: center;
+              display: block;
+            }
+            a:hover {
+              color: #FF6767;
+              transition: all 2s linear;
+            }
+          }
+        }
+        .n_cookbook3 {
+          width: 100%;
+          padding: 8px 0px;
+          display: none;
+          .n_cook {
+            float: left;
+            margin-right: 20px;
+            width: 230px;
+            height: 305px;
+            .n_cookimg1 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201511261448511476963 (1).jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg2 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412161418708820256.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg3 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412171418792288850.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg4 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412171418794418131.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg5 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418633910888.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg20 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418633722494.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg6 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418637339893.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg7 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418629886725.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg8 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201501101420860049389.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg9 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201501101420857970771.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg10 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418632855242.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg11 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418636937711.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg12 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201501101420879222287.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg13 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418631294204.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg14 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201501291422521713355.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg15 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201501101420869487206.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg16 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418634904516.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg17 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201501101420856398745.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg18 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201501101420859859839.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            .n_cookimg19 {
+              width: 100%;
+              height: 230px;
+              background: url("../../img/indeximg/201412151418639576351.jpg") no-repeat;
+              background-size: 100% 100%;
+              background-position: 50%;
+            }
+            p {
+              width: 100%;
+              text-align: center;
+              font-size: 20px;
+              margin: 8px 0px;
+              color: black;
+            }
+            p:hover {
+              color: #FF6767;
+              transition: all 2s linear;
+            }
+            a {
+              width: 100%;
+              text-decoration: none;
+              color: #999999;
+              font-size: 12px;
+              text-align: center;
+              display: block;
+            }
+            a:hover {
+              color: #FF6767;
+              transition: all 2s linear;
+            }
+          }
+        }
+      }
+      .n_morebutton {
+        width: 100%;
+        height: 44px;
+        & > a {
+          display: block;
+          width: 100%;
+          height: 44px;
+          font-size: 22px;
+          color: #FF6767;
+          text-align: center;
+          line-height: 44px;
+          background: #F8F8F8;
+        }
+        & > a:hover {
+          background: #FF6767;
+          color: white;
+        }
+      }
+      footer {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px 0px;
+        border-top: 1px solid #E8E8E8;
+        position: relative;
+        p {
+          width: 100%;
+          margin: 10px 0px;
+          color: #666;
+          font-size: 12px;
+          &:nth-of-type(1) {
+            color: #FF553F;
+            font-size: 14px;
+          }
+          &:nth-of-type(2) {
+            & > a {
+              color: #666;
+            }
+            & > a:hover {
+              color: #FF5500;
+              text-decoration: underline;
+            }
+          }
+        }
+        .n_kehudaun {
+          position: absolute;
+          top: 10px;
+          right: 10%;
+          width: 82px;
+          text-align: center;
+          img {
+            width: 82px;
+            height: 82px;
+          }
+        }
+        .n_weixin {
+          position: absolute;
+          top: 10px;
+          right: 0;
+          width: 82px;
+          text-align: center;
+          img {
+            width: 82px;
+            height: 82px;
+          }
+        }
+      }
+    }
+  }
+  & > .gotop {
+    width: 58px;
+    height: 58px;
+    //border:1px solid black;
+    border-radius: 50%;
+    @include pos(fixed);
+    bottom: 12%;
+    right: 8%;
+    cursor: pointer;
+    opacity: 0;
+    & > p {
+      width: 100%;
+      height: 100%;
+      @include pos();
+      left: 0;
+      top: 0;
+    }
+    & > img {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+  & > .gotop:hover {
+    & > p {
+      background: white;
+      opacity: .2;
+    }
+  }
+}
